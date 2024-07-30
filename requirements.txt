@@ -1,0 +1,7 @@
+aiogram
+pydantic
+openai
+pydub
+asyncio
+pydantic_settings
+
