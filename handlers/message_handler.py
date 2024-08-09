@@ -45,20 +45,20 @@ async def receive_voice_message(message: Message) -> None:
             TempFile.write(voice_byte)
 
         # format voice to wav :
-        wav_voice_file = convert_voice_format(TempFile.name, voice_format)
+        wav_voice_file = await convert_voice_format(TempFile.name, voice_format)
         logging.info(f'Type of waw voice converted file {wav_voice_file}')
 
         TempFile.close()
 
         # Sending transcript text to bot
-        transcript_text = voice_to_text(raw_audio_file=wav_voice_file)
+        transcript_text = await voice_to_text(raw_audio_file=wav_voice_file)
 
         # Answer of Open Ai assistant to transcript text :
-        assistant_answer = openai_response(transcript_text=transcript_text)
+        assistant_answer = await openai_response(transcript_text=transcript_text)
 
         # Sending Open AI message as voice to user :
         # Function text-to-voice return byte
-        response_byte = text_to_voice(assistant_answer)
+        response_byte = await text_to_voice(assistant_answer)
         # we need to convert file then send it as audio to user
         response_voice = BufferedInputFile(response_byte, filename='Audio_Response')
         await message.answer_voice(response_voice)
