@@ -1,7 +1,7 @@
 from services.OpenAI_Instance import client
 
 
-def openai_response(transcript_text: str) -> str:
+async def openai_response(transcript_text: str) -> str:
     """
 
     :param transcript_text: text which has been gotten by client voice note
