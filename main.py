@@ -7,7 +7,7 @@ from aiogram import Dispatcher
 from bot.bot_instance import bot
 
 
-def register_handler(dp: Dispatcher) -> None:
+async def register_handler(dp: Dispatcher) -> None:
     """
 
     :param dp: Dispatcher from aiogram
@@ -23,7 +23,7 @@ async def main() -> None:
     :return: The main function which run our telegram bot
     """
     dp = Dispatcher()
-    register_handler(dp)
+    await register_handler(dp)
     await dp.start_polling(bot)
 
 
