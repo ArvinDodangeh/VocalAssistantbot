@@ -2,7 +2,7 @@ from services.OpenAI_Instance import client
 import logging
 
 
-def voice_to_text(raw_audio_file):
+async def voice_to_text(raw_audio_file):
 
     try:
 
