@@ -1,7 +1,7 @@
 from services.OpenAI_Instance import client
 
 
-def text_to_voice(text: str):
+async def text_to_voice(text: str):
     """
 
     :param text:  Text from Open AI model
