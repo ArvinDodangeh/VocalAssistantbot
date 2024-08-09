@@ -4,7 +4,7 @@ from io import BytesIO
 # In order to voice message be usable for openAI API , it should be converted to certain file format .
 
 
-def convert_voice_format(voice_file, voice_format):
+async def convert_voice_format(voice_file, voice_format):
     """
 
     :param voice_file: voice file from user
